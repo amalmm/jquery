@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div id="id" class="container"></div>
+	<script type="text/javascript">
+		$(document).ready(()=>{
+            
+            // select main id 
+             const $id = $("#id"); 
+ 			
+ 			// append form
+ 			 $id.append('<form id="form1"></form>');
+
+             // form select 
+             const $form = $id.find("#form1"); 
+             
+             // add botton element to brom
+             $form.append('<input type="text" name="input_name" class="form-control" placeholder="name"  >')
+             $form.append('<input type="password" name="input_password" class="form-control" placeholder="password">')
+             $form.append('<input type="checkbox" >')
+             $form.append('<input type="submit" class="btn btn-sm btn-success form-control" >')
+             $form.find("input[name=input_name]").before('<labe>name</labe>')
+             $form.find("input[name=input_password]").before('<labe>password</labe>')
+             // $form.find("input[name=input_name]").attr('required',true)
+
+             // 
+
+
+
+             // form validation
+             $form.submit(function(e){
+             	 e.preventDefault();
+             	$input_name = $("#form1 input[name=input_name]");
+             	$input_password = $("#form1 input[name=input_password]");
+             	if($input_name.val()==""){
+             		$input_name.after('<div class="text-danger">name reuired</div>')
+             	}
+             	if($input_password.val()==""){
+             		$input_password.after('<div class="text-danger">password requierd</div>')
+             	}
+             })
+
+
+ 			// add required attribute to name
+
+
+		})
+	</script>
+</body>
+</html>
